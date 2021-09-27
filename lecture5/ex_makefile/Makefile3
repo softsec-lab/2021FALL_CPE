@@ -1,0 +1,19 @@
+CC=g++
+CXXFLAGS=-W -Wall
+TARGET=todo
+all: $(TARGET)
+
+todo: my_memo.o my_cal.o main.o
+	$(CC) $(CXXFLAGS) -o $@ $^
+
+my_memo.o: my_memo.cc
+	$(CC) $(CXXFLAGS) -c -o $@ $^
+
+my_cal.o: my_cal.cc
+	$(CC) $(CXXFLAGS) -c -o $@ $^
+
+main.o: main.cc
+	$(CC) $(CXXFLAGS) -c -o $@ $^
+
+clean:
+	rm -rf *.o todo
